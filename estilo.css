@@ -1,0 +1,148 @@
+body {
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    padding: 15px;
+    width: 960px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "main aside"
+        "footer footer";
+    grid-column-gap: 15px;
+}
+
+
+#header {
+    background-color: darkred;
+    grid-area: header;
+    margin-bottom: 15px;
+}
+
+#main {
+    background-color: darkblue;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 15px;
+    padding: 15px;
+    grid-template-areas: 
+        "header header"
+        "picture article";
+}
+
+#aside {
+    background-color: green;
+    grid-area: aside;
+    width: 250px;
+}
+
+#footer {
+    background-color: purple;
+    grid-area: footer;
+    margin-top: 15px;
+}
+
+main > header {
+    background-color: orange;
+    grid-column: 1 / -1;
+}
+
+main > picture {
+    background-color: blue;
+}
+
+main > article {
+    background-color: red;
+}
+
+@media screen and (min-width: 801px) and (max-width: 959px) {
+    .grid-container {
+        width: 96%;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "main aside"
+            "footer";
+        grid-gap: 15px;
+    }
+
+    #header{
+        margin-bottom: 0;
+    }
+
+    #main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr 1fr;
+        grid-gap: 15px;
+        padding: 15px;
+        grid-template-areas:
+            "header"
+            "picture"
+            "article";
+    }
+
+    #aside {
+        background-color: green;
+        grid-area: aside;
+        width: 250px;
+    }
+
+    #footer {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .grid-container {
+        width: 96%;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "main"
+            "aside"
+            "footer";
+    }
+
+    #header{
+        margin-bottom: 0;
+    }
+
+    #main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr 1fr;
+        grid-gap: 15px;
+        padding: 15px;
+        grid-template-areas:
+            "header"
+            "picture"
+            "article";
+    }
+    
+    #aside {
+        width: 100%;
+        height: 100px;
+        margin-left: 0;
+    }
+
+    
+
+    main {
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+}
